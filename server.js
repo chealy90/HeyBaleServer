@@ -19,7 +19,8 @@ app.use(userRoutes)
 
 
 //start server, listen on port
-app.listen(process.env.SERVER_PORT, '0.0.0.0', () => {
+const PORT = process.env.PORT || 5000
+app.listen(PORT, '0.0.0.0', () => {
     console.log("connected to port " + process.env.SERVER_PORT)
 })
 
