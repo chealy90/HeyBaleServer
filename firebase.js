@@ -12,7 +12,6 @@ try {
   });
 } catch (err) {
   console.error('Firebase initialization failed:', err);
-  process.exit(1);
 }
 
 module.exports = admin;
