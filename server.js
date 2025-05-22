@@ -8,8 +8,10 @@ app.use(require('body-parser').json())
 app.use(require('cors')({credentials: true, origin: process.env.LOCAL_HOST}))
 
 //db
+/*
 const admin  = require('./firebase')
 const db = admin.firestore()
+*/
 
 //routes
 const userRoutes = require('./routes/users')
