@@ -5,10 +5,7 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
 
 
 try {
-  const configBase64 = process.env.FIREBASE_SERVICE_KEY
-  const serviceAccount = JSON.parse(
-    Buffer.from(configBase64, 'base64').toString('utf8')
-  );
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
   
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
