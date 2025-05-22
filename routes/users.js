@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-//const carsModel = require('../models/users')
+const carsModel = require('../models/users')
 
 
 //REGISTERING
