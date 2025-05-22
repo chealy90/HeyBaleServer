@@ -4,10 +4,17 @@ const path = require('path');
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
 
 
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  // Optionally add databaseURL or storageBucket here if needed
-});
+try {
+  const serviceAccount = JSON.parse(
+    Buffer.from(process.env.FIREBASE_CONFIG_BASE64, 'base64').toString()
+  );
+  
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+} catch (err) {
+  console.error('Firebase initialization failed:', err);
+  process.exit(1);
+}
 
 module.exports = admin;
