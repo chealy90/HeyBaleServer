@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const carsModel = require('../models/users')
 
 
 //REGISTERING
@@ -9,16 +10,13 @@ router.get('/', (req, res) => {
 
 
 
-router.post('/register', async (req, res) => {
-    try {
-        res.status(200).json({
-            message: "server received"
-        })
-    }
-    catch (err) {
-        console.log(err)
-    }
-
+router.post('/register', (req, res) => {
+    usersModel.add(req.body)
+    .then(()=>{
+        res.json(req.body)
+    })
 })
+
+
 
 module.exports = router
