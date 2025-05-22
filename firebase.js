@@ -5,7 +5,7 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
 
 
 try {
-  const configBase64 = process.env.FIREBASE_CONFIG_BASE64 || FALLBACK_BASE64;
+  const configBase64 = process.env.FIREBASE_SERVICE_KEY
   const serviceAccount = JSON.parse(
     Buffer.from(configBase64, 'base64').toString('utf8')
   );
