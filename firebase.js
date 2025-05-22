@@ -1,12 +1,10 @@
 // firebase.js (for Node.js backend)
 const admin = require('firebase-admin');
 const path = require('path');
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
-
+//const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
+const serviceAccount = require('./serviceAccountKey.json')
 
 try {
-  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_KEY);
-  
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
   });
