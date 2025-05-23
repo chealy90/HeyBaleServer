@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         }
     }
     else {
-        res.status(500).json({errorMessage: "An error occurred while trying to log in"})
+        res.status(401).json({errorMessage: "An error occurred while trying to log in"})
     }
 })
 
