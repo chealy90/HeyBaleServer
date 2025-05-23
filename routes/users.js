@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/register', (req, res) => {
+    console.log(req.body)
     usersModel.add(req.body)
     .then(()=>{
         res.json(req.body)
