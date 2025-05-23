@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
     console.log(req.body)
     usersModel.add(req.body)
     .then(()=>{
-        res.json(req.body)
+        res.status(201).json(req.body)
     })
 })
 
