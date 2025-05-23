@@ -20,9 +20,10 @@ router.post('/register', (req, res) => {
 router.post('/login', async (req, res) => {
     const userDocSnapShot = await usersModel.where('email', '==', req.body.email).limit(1).get()
     if (!userDocSnapShot.empty){
-        const userDoc = userDocSnapShot.docs[0].data()
-        if (req.body.password === userDoc.password){
-            res.status(200).json(userDoc.data())
+        const userDoc = userDocSnapShot.docs[0]
+        const userData = userDoc.data()
+        if (req.body.password === userData.password){
+            res.status(200).json(userData)
         }
         else {
             res.status(401).json({errorMessage: "Invalid email and password combination"})
