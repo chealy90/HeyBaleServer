@@ -19,6 +19,7 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    console.log(req.body)
     const userDocSnapShot = await usersModel.where('email', '==', req.body.email).limit(1).get()
     if (!userDocSnapShot.empty){
         const userDoc = userDocSnapShot.docs[0]
