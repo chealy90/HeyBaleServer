@@ -4,7 +4,7 @@ require('dotenv').config({path:'./config/.env'})
 const express = require('express')
 const app = express()
 const createError = require('http-errors')
-app.use(require('body-parser').json())
+const bodyParser = require('body-parser');
 app.use(require('cors')({credentials: true, origin: process.env.LOCAL_HOST}))
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
