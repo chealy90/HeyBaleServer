@@ -20,9 +20,11 @@ router.post('/register', (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const userDocSnapShot = await usersModel.where('email', '==', req.body.email).limit(1).get()
+        console.log("found user")
         if (!userDocSnapShot.empty){
             const userDoc = userDocSnapShot.docs[0]
-            if (req.body.password === userDoc.password){
+            
+            if (req.body.password === userDoc.data().password){
                 res.status(200).json(userDoc.data())
             }
             else {
