@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const usersModel = require('../models/users')
-import { setDoc } from 'firebase/firestore';
 
 
 
@@ -56,7 +55,7 @@ router.post('/setUserInfo/:email', async (req, res) => {
                 ...userDoc.data(),
                 ...req.body
             }
-            await setDoc(userDoc.ref, newUserObj)
+            await userDoc.ref.set(newUserObj)
             res.status(200).json({data: "Success"})
 
         }
