@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const usersModel = require('../models/users')
-const { setDoc } = require('firebase/firestore');
+import { setDoc } from 'firebase/firestore';
+
 
 
 
