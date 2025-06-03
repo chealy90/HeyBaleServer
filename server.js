@@ -6,6 +6,8 @@ const app = express()
 const createError = require('http-errors')
 app.use(require('body-parser').json())
 app.use(require('cors')({credentials: true, origin: process.env.LOCAL_HOST}))
+app.use(express.json({ limit: '10mb' })); 
+
 
 //db
 const admin  = require('./firebase')
