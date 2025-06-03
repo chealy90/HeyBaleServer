@@ -59,6 +59,7 @@ router.post('/setUserInfo/:email', async (req, res) => {
         }
     }
     catch (error){
+        console.log(error)
         res.status(500).json({errorMessage: error})
     }
     
